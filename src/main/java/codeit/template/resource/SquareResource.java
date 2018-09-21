@@ -13,8 +13,8 @@ import java.util.Map;
 public class SquareResource {
 
     @RequestMapping("/")
-    public Square hello(){
-        return  new Square(2);
+    public String hello(){
+        return  "Hello world";
     }
 
    @RequestMapping(value = "square",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
