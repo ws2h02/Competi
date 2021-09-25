@@ -23,16 +23,15 @@ public class AsteroidResource {
 	    	Data.add(temp);
 		    System.out.println(temp);
 	  }
-	   
-	  ArrayList<String> List = new ArrayList<String>();
        
-	  String abc = "[\r\n";
+	  String ans = "[\r\n";
 	   		
-	  for (String temp : List) {
-		  abc += "  {\r\n" + "    \"input\": \"" + temp + "\\\",\\r\\n\"";
-		  abc += "    \"score\": 15,\r\n" + "    \"origin\": 7\r\n" + "  },\r\n";
+	  for (String temp : Data) {
+		  ans += "  {\r\n" + "    \"input\": \"" + temp + "\",\r\n";
+		  ans += "\"score\": 15,\r\n" ;
+		  ans += "    \"origin\": 7\r\n" + "  },\r\n";
 	  }
-	  abc += "]";
-       return abc;
+	  ans += "]";
+      return ans;
     }
 }
