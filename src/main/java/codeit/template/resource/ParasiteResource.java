@@ -20,9 +20,9 @@ import java.util.Map;
 
 @RestController
 public class ParasiteResource {
-    Logger logger = LoggerFactory.getLogger(ParasiteResource.class);
+	Logger logger = LoggerFactory.getLogger(ParasiteResource.class);
 
-   @RequestMapping(value = "parasite",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "parasite",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, Object>[] calculate(@RequestBody Object[] body){
 	   LinkedHashMap<String, Object>[] ans = new LinkedHashMap[body.length];
 	   LinkedHashMap<String, Object> object = new LinkedHashMap();
@@ -94,319 +94,92 @@ public class ParasiteResource {
 			   Grid_p1.add((int)temp[a] - 48);
 		   }
 		   ArrayList<Integer> Grid_p3 = new ArrayList<Integer>(Grid_p1);
-		   
+		   int n = Grid_p1.size();
 		   while(Grid_p1.contains(time + basic)) {
 			   while(Grid_p1.contains(time + basic)) {
 				   int posi = Grid_p1.indexOf(time + basic);
-
 				   Grid_p1.set(posi, (time + basic)*-1);
-				   if(posi < G_row) {
-					   if(posi == 0) {
+				   if(posi%G_row+1 < G_row) {
 						   if(Grid_p1.get(posi+1) == 1) {
-							   Grid_p1.set(posi+1,time + basic+1);
-
+								   Grid_p1.set(posi+1,time + basic+1);
+							   }
 						   }
-						   if(Grid_p1.get(posi+G_row) == 1) {
-							   Grid_p1.set(posi+G_row,time + basic+1);
-							
+				   if(posi%G_row-1 >= 0) {
+							if(Grid_p1.get(posi-1) == 1) {
+								   Grid_p1.set(posi-1,time + basic+1);
+							   }
 						   }
-					   }else if(posi == G_row-1) {
-						   if(Grid_p1.get(posi-1) == 1) {
-							   Grid_p1.set(posi-1,time + basic+1);
-				
+				   if(posi+G_row < n) {
+							if(Grid_p1.get(posi+G_row) == 1) {
+								   Grid_p1.set(posi+G_row,time + basic+1);
+								  
+							   }
 						   }
-						   if(posi+G_row >= Grid_p1.size()) {
-							   break;
-						   }
-						   if(Grid_p1.get(posi+G_row) == 1) {
-							   Grid_p1.set(posi+G_row,time + basic+1);
-			
-						   }
-					   }else {
-						   if(Grid_p1.get(posi+1) == 1) {
-							   Grid_p1.set(posi+1,time + basic+1);
-		
-						   }
-						   if(Grid_p1.get(posi-1) == 1) {
-							   Grid_p1.set(posi-1,time + basic+1);
-
-						   }
-						   if(Grid_p1.get(posi+G_row) == 1) {
-		
-							   Grid_p1.set(posi+G_row,time + basic+1);
-	
+				   if(posi-G_row >= 0) {
+							if(Grid_p1.get(posi-G_row) == 1) {
+								   Grid_p1.set(posi-G_row,time + basic+1);
+							   }
 						   }
 					   }
-				   }else if(posi >= G_row*(G_col-1)) {
-					   if(posi == G_row*(G_col-1)) {
-						   if(Grid_p1.get(posi+1) == 1) {
-							   Grid_p1.set(posi+1,time + basic+1);
-		
-						   }
-						   if(Grid_p1.get(posi-G_row) == 1) {
-							   Grid_p1.set(posi-G_row,time + basic+1);
-
-						   }
-					   }else if(posi == Grid_p1.size()-1) {
-						   if(Grid_p1.get(posi-1) == 1) {
-							   Grid_p1.set(posi-1,time + basic+1);
-
-						   }
-						   if(Grid_p1.get(posi-G_row) == 1) {
-							   Grid_p1.set(posi-G_row,time + basic+1);
-
-						   }
-					   }else {
-						   if(Grid_p1.get(posi+1) == 1) {
-							   Grid_p1.set(posi+1,time + basic+1);
-
-						   }
-						   if(Grid_p1.get(posi-1) == 1) {
-							   Grid_p1.set(posi-1,time + basic+1);
-
-						   }
-						   if(Grid_p1.get(posi-G_row) == 1) {
-							   Grid_p1.set(posi-G_row,time + basic+1);
-
-						   }
-					   }
-				   }else if(posi % G_row == 0) {
-					   if(Grid_p1.get(posi+1) == 1) {
-						   Grid_p1.set(posi+1,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi+G_row) == 1) {
-						   Grid_p1.set(posi+G_row,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi-G_row) == 1) {
-						   Grid_p1.set(posi-G_row,time + basic+1);
-
-					   }
-				   }else if((posi+1) % G_row == 0) {
-					   if(Grid_p1.get(posi-1) == 1) {
-						   Grid_p1.set(posi-1,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi+G_row) == 1) {
-						   Grid_p1.set(posi+G_row,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi-G_row) == 1) {
-						   Grid_p1.set(posi-G_row,time + basic+1);
-
-					   }
-				   }else {
-					   if(Grid_p1.get(posi+1) == 1) {
-						   Grid_p1.set(posi+1,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi-1) == 1) {
-						   Grid_p1.set(posi-1,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi+G_row) == 1) {
-						   Grid_p1.set(posi+G_row,time + basic+1);
-
-					   }
-					   if(Grid_p1.get(posi-G_row) == 1) {
-						   Grid_p1.set(posi-G_row,time + basic+1);
-
-					   }
-				   }
-				   
-			   }
 			   time += 1;
 		   }
 		   
 		   time = 0;
 		   while(Grid_p3.contains(time + basic)) {
 			   while(Grid_p3.contains(time + basic)) {
-				   
 				   int posi = Grid_p3.indexOf(time + basic);
 				   Grid_p3.set(posi, (time + basic)*-1);
-				   if(posi < G_row) {
-					   if(posi == 0) {
-						   if(Grid_p3.get(posi+1) == 1) {
-							   Grid_p3.set(posi+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row) == 1) {
-							   Grid_p3.set(posi+G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row+1) == 1) {
-							   Grid_p3.set(posi+G_row+1,time + basic+1);
-							   
-						   }
-					   }else if(posi == G_row-1) {
-						   if(Grid_p3.get(posi-1) == 1) {
-							   Grid_p3.set(posi-1,time + basic+1);
-							   
-						   }
-						   if(posi+G_row >= Grid_p3.size()) {
-							   break;
-						   }
-						   if(Grid_p3.get(posi+G_row) == 1) {
-							   Grid_p3.set(posi+G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row-1) == 1) {
-							   Grid_p3.set(posi+G_row-1,time + basic+1);
-							   
-						   }
-					   }else {
-						   if(Grid_p3.get(posi+1) == 1) {
-							   Grid_p3.set(posi+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-1) == 1) {
-							   Grid_p3.set(posi-1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row) == 1) {
-							   Grid_p3.set(posi+G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row+1) == 1) {
-							   Grid_p3.set(posi+G_row+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi+G_row-1) == 1) {
-							   Grid_p3.set(posi+G_row-1,time + basic+1);
-							   
-						   }
-					   }
-				   }else if(posi >= G_row*(G_col-1)) {
-					   if(posi == G_row*(G_col-1)) {
-						   if(Grid_p3.get(posi+1) == 1) {
-							   Grid_p3.set(posi+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row) == 1) {
-							   Grid_p3.set(posi-G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row+1) == 1) {
-							   Grid_p3.set(posi-G_row+1,time + basic+1);
-							   
-						   }
-					   }else if(posi == Grid_p3.size()-1) {
-						   if(Grid_p3.get(posi-1) == 1) {
-							   Grid_p3.set(posi-1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row) == 1) {
-							   Grid_p3.set(posi-G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row-1) == 1) {
-							   Grid_p3.set(posi-G_row-1,time + basic+1);
-							   
-						   }
-					   }else {
-						   if(Grid_p3.get(posi+1) == 1) {
-							   Grid_p3.set(posi+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-1) == 1) {
-							   Grid_p3.set(posi-1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row) == 1) {
-							   Grid_p3.set(posi-G_row,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row+1) == 1) {
-							   Grid_p3.set(posi-G_row+1,time + basic+1);
-							   
-						   }
-						   if(Grid_p3.get(posi-G_row-1) == 1) {
-							   Grid_p3.set(posi-G_row-1,time + basic+1);
-							   
-						   }
-					   }
-				   }else if(posi % G_row == 0) {
+				   if(posi%G_row+1 < G_row) {
 					   if(Grid_p3.get(posi+1) == 1) {
-						   Grid_p3.set(posi+1,time + basic+1);
-						   
+							   Grid_p3.set(posi+1,time + basic+1);
+						   }
 					   }
+				   if(posi%G_row-1 >= 0) {
+					   if(Grid_p3.get(posi-1) == 1) {
+								   Grid_p3.set(posi-1,time + basic+1);
+							   }
+						   }
+				   if(posi+G_row < n) {
 					   if(Grid_p3.get(posi+G_row) == 1) {
-						   Grid_p3.set(posi+G_row,time + basic+1);
-						   
-					   }
+								   Grid_p3.set(posi+G_row,time + basic+1);
+								  
+							   }
+						   }
+				   if(posi-G_row >= 0) {
 					   if(Grid_p3.get(posi-G_row) == 1) {
-						   Grid_p3.set(posi-G_row,time + basic+1);
-						   
-					   }
+								   Grid_p3.set(posi-G_row,time + basic+1);
+							   }
+						   }
+				   if(posi-G_row >= 0 & posi%G_row+1 < G_row) {
 					   if(Grid_p3.get(posi-G_row+1) == 1) {
 						   Grid_p3.set(posi-G_row+1,time + basic+1);
-						   
+						  
 					   }
+				   }
+				   if(posi+G_row < n & posi%G_row+1 < G_row) {
 					   if(Grid_p3.get(posi+G_row+1) == 1) {
 						   Grid_p3.set(posi+G_row+1,time + basic+1);
-						   
+						  
 					   }
-				   }else if((posi+1) % G_row == 0) {
-					   if(Grid_p3.get(posi-1) == 1) {
-						   Grid_p3.set(posi-1,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi+G_row) == 1) {
-						   Grid_p3.set(posi+G_row,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi-G_row) == 1) {
-						   Grid_p3.set(posi-G_row,time + basic+1);
-						   
-					   }
+				   }
+				   if(posi-G_row >= 0 & posi%G_row-1 >= 0) {
 					   if(Grid_p3.get(posi-G_row-1) == 1) {
 						   Grid_p3.set(posi-G_row-1,time + basic+1);
-						   
+	
 					   }
-					   if(Grid_p3.get(posi+G_row-1) == 1) {
-						   Grid_p3.set(posi+G_row-1,time + basic+1);
-						   
-					   }
-				   }else {
-					   if(Grid_p3.get(posi+1) == 1) {
-						   Grid_p3.set(posi+1,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi-1) == 1) {
-						   Grid_p3.set(posi-1,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi+G_row) == 1) {
-						   Grid_p3.set(posi+G_row,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi-G_row) == 1) {
-						   Grid_p3.set(posi-G_row,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi-G_row+1) == 1) {
-						   Grid_p3.set(posi-G_row+1,time + basic+1);
-						   
-					   }
-					   if(Grid_p3.get(posi+G_row+1) == 1) {
-						   Grid_p3.set(posi+G_row+1,time + basic+1);
-					   }
-					   if(Grid_p3.get(posi-G_row-1) == 1) {
-						   Grid_p3.set(posi-G_row-1,time + basic+1);
-					   }
+				   }
+				   if(posi+G_row < n & posi%G_row-1 >= 0) {
 					   if(Grid_p3.get(posi+G_row-1) == 1) {
 						   Grid_p3.set(posi+G_row-1,time + basic+1);
 					   }
 				   }
-				   
+				 System.out.println(Grid_p3);
 			   }
 			   time += 1;
 		   }
 		   
 		   int energy = 0;
 		   ArrayList<Integer> Grid_p4 = new ArrayList<Integer>(Grid_p1);
-		   int n = Grid_p4.size();
 		   for(int b = 0; b < n; b++) {
 			   if(Grid_p4.get(b) <= -3) {
 				   Grid_p4.set(b, 4);
@@ -695,12 +468,7 @@ public class ParasiteResource {
 		   System.out.println(Grid_p4);
 		   System.out.println();
 	   }
-	   
-	   
-	   
-	   
-	   return ans;
-       
-    }	
-}
 
+	return ans;
+
+}}
