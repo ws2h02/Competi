@@ -44,47 +44,61 @@ public class AsteroidResource {
 		  }
 		  Analy.add(String.valueOf(array[array.length-1]) + String.valueOf(cout));
 		  
-
-		  int start = (int) Math.floor(Analy.size()/2);
-		  double score = Integer.valueOf(Analy.get(start).substring(1));
-		  int pre = start-1;
-		  int aft = start+1;
-		  while(pre >= 0) {
-			  if(aft == Analy.size()) {
-				  break;
+		  double ans_score = 0;
+		  int ans_origin = 0;
+		  
+		  for(int i = 0; i < Analy.size(); i++) {
+			  int start = i;
+			  double score = Integer.valueOf(Analy.get(start).substring(1));
+			  int pre = start-1;
+			  int aft = start+1;
+			  if(Integer.valueOf(Analy.get(start).substring(1))%2 == 0) {
+				  System.out.println("TTT"+score);
+			  }else {
+				  while(pre >= 0) {
+					  if(aft == Analy.size()) {
+						  break;
+					  }
+					  if(Analy.get(pre).charAt(0) != Analy.get(aft).charAt(0)) {
+						  break;
+					  }
+					  int multi = Integer.valueOf(Analy.get(pre).substring(1)) + Integer.valueOf(Analy.get(aft).substring(1));
+					  if(multi <= 6) {
+						  score += multi;
+					  }else if(multi <= 9) {
+						  score += multi*1.5;
+					  }else if(multi >= 10) {
+						  score += multi*2;
+					  }
+					  
+					  System.out.println(multi);
+					  pre -= 1;
+					  aft += 1;
+				  }
 			  }
-			  if(Analy.get(pre).charAt(0) != Analy.get(aft).charAt(0)) {
-				  break;
-			  }
-			  int multi = Integer.valueOf(Analy.get(pre).substring(1)) + Integer.valueOf(Analy.get(aft).substring(1));
-			  if(multi <= 6) {
-				  score += multi;
-			  }else if(multi <= 9) {
-				  score += multi*1.5;
-			  }else if(multi >= 10) {
-				  score += multi*2;
-			  }
+			  
 
-			  System.out.println(multi);
-			  pre -= 1;
-			  aft += 1;
-
+			  int origin = (int) Math.floor((Integer.valueOf(Analy.get(start).substring(1)))/2);
+			  System.out.println(Analy);
+			  for(int j = 0; j < start; j++) {
+				  origin += Integer.valueOf(Analy.get(j).substring(1));
+				  System.out.println("Here"+ Analy.get(j).substring(1));
+			  }
+			  System.out.println("ori"+ origin);
+			  if(score > ans_score) {
+				  ans_score = score;
+				  ans_origin = origin;
+			  }
 		  }
 		  
-		  BigDecimal d = new BigDecimal(score);
+
+
+		  BigDecimal d = new BigDecimal(ans_score);
 		  d.stripTrailingZeros();
 		  System.out.println(d);
+		  
 		  ans += "\"score\": " + d +",\r\n";
-		  
-		  int origin = (int) Math.floor((Integer.valueOf(Analy.get(start).substring(1)))/2);
-		  System.out.println(Analy);
-		  for(int i = 0; i < start; i++) {
-			  origin += Integer.valueOf(Analy.get(i).substring(1));
-			  System.out.println("Here"+ Analy.get(i).substring(1));
-		  }
-		  
-		  System.out.println("ori"+ origin);
-		  ans += "    \"origin\": " + origin +"\r\n" + "  },\r\n";
+		  ans += "    \"origin\": " + ans_origin +"\r\n" + "  },\r\n";
 	  }
 	  ans = ans.substring(0, ans.length()-3);
 	  ans += "]";
