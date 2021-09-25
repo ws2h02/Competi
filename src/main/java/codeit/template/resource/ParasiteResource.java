@@ -195,8 +195,10 @@ public class ParasiteResource {
 					   if(Grid_p4.get(b-2) == 4) {
 						   Grid_p4.set(b,3);
 						   energy += 1;
+						   System.out.println("Here: " + Grid_p4);
 					   }
 				   }
+				   
 				   if(b+G_row+G_row < n) {
 					   if(Grid_p4.get(b+G_row+G_row) == 4) {
 						   Grid_p4.set(b,3);
@@ -241,7 +243,7 @@ public class ParasiteResource {
 				   Grid_p4.set(posi, 4);
 				   if(posi%G_row+1 < G_row) {
 					   if(Grid_p4.get(posi+1) == 1) {
-						   Grid_p1.set(posi+1,3);
+						   Grid_p4.set(posi+1,3);
 					   }
 				   }
 				   if(posi%G_row-1 >= 0) {
@@ -365,8 +367,9 @@ public class ParasiteResource {
 		   
 		   ans[cont] = new LinkedHashMap<String, Object>(object);
 		   cont += 1;
+		   System.out.print(Grid_p4);
 	   }
-	System.out.print("Done");
+
 	return ans;
 
 }}
