@@ -54,13 +54,11 @@ public class AsteroidResource {
 				  score = score;
 			  }else if(score <= 9) {
 				  score = score*1.5;
-				  System.out.println("Here" + score);
 			  }else if(score >= 10) {
 				  score = score*2;
 			  }
 			  int pre = start-1;
 			  int aft = start+1;
-			  System.out.println("Here1" + score);
 			  if(Integer.valueOf(Analy.get(start).substring(1))%2 != 0) {
 				  while(pre >= 0) {
 					  if(aft == Analy.size()) {
@@ -85,7 +83,6 @@ public class AsteroidResource {
 			  
 
 			  int origin = (int) Math.floor((Integer.valueOf(Analy.get(start).substring(1)))/2);
-			  System.out.println(Analy);
 			  for(int j = 0; j < start; j++) {
 				  origin += Integer.valueOf(Analy.get(j).substring(1));
 			  }
