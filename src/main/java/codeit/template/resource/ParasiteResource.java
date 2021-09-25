@@ -366,7 +366,7 @@ public class ParasiteResource {
 		   
 		   ans[cont] = new LinkedHashMap<String, Object>(object);
 		   cont += 1;
-		   System.out.print(ans);
+		   System.out.println(ans);
 	   }
 
 	return ans;
