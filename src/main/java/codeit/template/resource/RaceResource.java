@@ -19,7 +19,7 @@ public class RaceResource {
     public String calculate(@RequestBody String body){
        System.out.println(body);
        JSONObject Data = new JSONObject();
-       String Winner = "Mari Maus,Olive Osgood,Rossana Rackers,Cecila Cribb,Sang Sirois,Olinda Oakley,Rebekah Regnier,Shelli Scheuerman,Judi Jacquez,Emily Eckles,Gaston Glotfelty";
+       String Winner = "Mari Maus,Olive Osgood,Rossana Rackers,Cecila Cribb,Sang Sirois,Olinda Oakley,Rebekah Regnier,Shelli Scheuerman,Judi Jacquez,Emily Eckles,Gaston Glotfelty,Stepanie Strang";
        Data.put("Mari Maus", "Caitlin Cully, Charita Collett, Franklin Filippi, Jared Jinkins, Fletcher Felty, Candice Cahill, Francisco Finchum, Tracie Temblador, Leslie Lubinsky");
        Data.put("Olive Osgood", "Astrid Acheson, Candice Cahill, Vanda Vonderheide, Boris Batts, Josiah Jarnagin, Sharyl Shepler, Jewel Jaeger, Colin Crail, Reed Rotolo");
        Data.put("Rossana Rackers", "Zada Zynda, Josiah Jarnagin, Shawn Setliff, Sixta Sulton, Colin Crail, Lemuel Lorenzo, Rebekah Regnier, Duane Darrell, Chester Caldwell, Olinda Oakley, Lucas Lucht, Lauretta Lippard, Hollis Hohlt, Cecila Cribb, Corine Cottrill, Warren Wesolowski, Joseph Jarosz, Cora Carruth");
@@ -31,7 +31,7 @@ public class RaceResource {
        Data.put("Emily Eckles","Lamont Lasch, Adina Able, Robbyn Ryland, Dorathy Detweiler, Lyman Laseter, Bernie Bondy, Ozell Ostrem, Fabian Fogel, Derek Duclos,Judith Juntunen, Terry Tietz, Valerie Vera, Alex Appleton, Duane Darrell, Brady Borda, Bernie Bondy, Darren Dudley, Dominque Deshon,Yuette Yurick, Justa Jeffery, Derek Duclos, Alayna Alberson, Livia Luse, Yu Yeates, Robbyn Ryland, Amos Alward, Shirly Sosebee, Gary Ginsburg, Derek Duclos, Alayna Alberson, Dominque Deshon, Livia Luse, Stepanie Strang, Arron Ammerman, Carlo Chute, Gaston Glotfelty, Gaston Glotfelty, Eva Epping, Vida Veal, Derek Duclos, Bernadine Brackin, Armida Abarca, Valerie Vera, Annalee Angert, Arron Ammerman");
        Data.put("Gaston Glotfelty", "Fletcher Felty, Yuette Yurick, Willian Wahlen, Trinity Trueblood, Thanh Tammaro, Vida Veal, Livia Luse, Franklin Filippi, Danae Depuy");
        Data.put("Shelli Scheuerman", "Judith Juntunen, Boris Batts, Livia Luse, Duane Darrell, Jefferson Juhl, Pamula Parrinello, Lauretta Lippard, Lamont Lasch, Gary Ginsburg");
-       
+       Data.put("Stepanie Strang", "Alaina Adolphson, Douglas Delima, Gary Ginsburg, Boris Batts, Karin Kurth, Farrah Frasure, Carlo Chute, Pamula Parrinello, Danae Depuy")
        
        
        String[] Choose = body.split(",");
