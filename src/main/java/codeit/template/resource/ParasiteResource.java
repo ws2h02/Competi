@@ -54,10 +54,7 @@ public class ParasiteResource {
 		   for(int v = 0; v < items.length; v++) {
 			   InIds[v] = Integer.parseInt(items[v]);
 		   }
-		   for(int v : InIds) {
-			   System.out.println(v);
-		   }
-		   
+
 		   
 		   String Grid = "";
 		   temp_1 = 5;
@@ -86,9 +83,7 @@ public class ParasiteResource {
 		   Grid = Grid.replace(",","");
 		   Grid = Grid.replace(" ","");
 		   int G_row = Grid.length()/G_col;
-		   System.out.println("Row: "+ G_row);
-		   System.out.println("Col: "+ G_col);
-		   
+
 		   int time = 0;
 		   int basic = 3;
 		   char[] temp = Grid.toCharArray();
@@ -268,7 +263,6 @@ public class ParasiteResource {
 							   
 						   }
 						   if(Grid_p3.get(posi+G_row) == 1) {
-							   System.out.println("testing");
 							   Grid_p3.set(posi+G_row,time + basic+1);
 							   
 						   }
@@ -648,8 +642,6 @@ public class ParasiteResource {
 		   
 		   for(int num = 0; num < InIds.length; num+=2) {
 			   String p1 = "";
-			   System.out.println("A: " + InIds[num]);
-			   System.out.println("B: " + InIds[num+1]);
 			   int Inpo = InIds[num]*G_row+InIds[num+1];
 			   p1 += InIds[num] + "," + InIds[num+1];
 			   if(Grid_p1.get(Inpo) == 1 |Grid_p1.get(Inpo) == 2 |Grid_p1.get(Inpo) == 0| Grid_p1.get(Inpo) == -3) {
@@ -696,7 +688,13 @@ public class ParasiteResource {
 		   
 		   ans[cont] = new LinkedHashMap<String, Object>(object);
 		   cont += 1;
+		   System.out.println(Grid_p1);
+		   System.out.println(Grid_p3);
+		   System.out.println(Grid_p4);
+		   System.out.println();
 	   }
+	   
+	   
 	   
 	   
 	   return ans;
