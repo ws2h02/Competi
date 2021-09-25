@@ -28,9 +28,11 @@ public class AsteroidResource {
 	   		
 	  for (String temp : Data) {
 		  ans += "  {\r\n" + "    \"input\": \"" + temp + "\",\r\n";
-		  ans += "\"score\": 15,\r\n" ;
+		  ans += "\"score\": 15,\r\n";
 		  ans += "    \"origin\": 7\r\n" + "  },\r\n";
 	  }
+
+	  ans = ans.substring(0, ans.length()-3);
 	  ans += "]";
       return ans;
     }
