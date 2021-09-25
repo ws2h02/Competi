@@ -49,7 +49,16 @@ public class ParasiteResource {
 		   InI = InI.replace(" ", "");
 		   InI = InI.replace("[", "");
 		   InI = InI.replace("]", "");
-		   InI = InI.replace(",", "");
+		   String[] items = InI.split(",");
+		   int[] InIds = new int[items.length];
+		   for(int v = 0; v < items.length; v++) {
+			   InIds[v] = Integer.parseInt(items[v]);
+		   }
+		   for(int v : InIds) {
+			   System.out.println(v);
+		   }
+		   
+		   
 		   String Grid = "";
 		   temp_1 = 5;
 		   temp_2 = Data.indexOf("grid");
@@ -636,13 +645,13 @@ public class ParasiteResource {
 		   }
 		   
 		   LinkedHashMap<String, Object> p1_map = new LinkedHashMap<String, Object>();
-		   System.out.println(InI);
-		   for(int num = 0; num < InI.length(); num+=2) {
+		   
+		   for(int num = 0; num < InIds.length; num+=2) {
 			   String p1 = "";
-			   System.out.println("A: " + InI.charAt(num));
-			   System.out.println("B: " + InI.charAt(num+1));
-			   int Inpo = Character.getNumericValue(InI.charAt(num))*G_row+Character.getNumericValue(InI.charAt(num+1));
-			   p1 += InI.charAt(num) + "," + InI.charAt(num+1);
+			   System.out.println("A: " + InIds[num]);
+			   System.out.println("B: " + InIds[num+1]);
+			   int Inpo = InIds[num]*G_row+InIds[num+1];
+			   p1 += InIds[num] + "," + InIds[num+1];
 			   if(Grid_p1.get(Inpo) == 1 |Grid_p1.get(Inpo) == 2 |Grid_p1.get(Inpo) == 0| Grid_p1.get(Inpo) == -3) {
 				   p1_map.put(p1, -1);
 			   }else {
