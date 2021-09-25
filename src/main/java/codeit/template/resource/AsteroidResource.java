@@ -49,17 +49,18 @@ public class AsteroidResource {
 		  
 		  for(int i = 0; i < Analy.size(); i++) {
 			  int start = i;
-			  double score = Integer.valueOf(Analy.get(start).substring(1));
-			  if(score <= 6) {
-				  score = score;
-			  }else if(score <= 9) {
-				  score = score*1.5;
-			  }else if(score >= 10) {
-				  score = score*2;
-			  }
+			  double score;
 			  int pre = start-1;
 			  int aft = start+1;
 			  if(Integer.valueOf(Analy.get(start).substring(1))%2 != 0) {
+				  score = Integer.valueOf(Analy.get(start).substring(1));
+				  if(score <= 6) {
+					  score = score;
+				  }else if(score <= 9) {
+					  score = score*1.5;
+				  }else if(score >= 10) {
+					  score = score*2;
+				  }
 				  while(pre >= 0) {
 					  if(aft == Analy.size()) {
 						  break;
@@ -78,6 +79,15 @@ public class AsteroidResource {
 
 					  pre -= 1;
 					  aft += 1;
+				  }
+			  }else {
+				  score = Integer.valueOf(Analy.get(start).substring(1))-1;
+				  if(score <= 6) {
+					  score = score;
+				  }else if(score <= 9) {
+					  score = score*1.5;
+				  }else if(score >= 10) {
+					  score = score*2;
 				  }
 			  }
 			  
