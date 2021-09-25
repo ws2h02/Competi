@@ -583,37 +583,53 @@ public class ParasiteResource {
 			   }
 			   for(int b = 0; b < n; b++) {
 				   if (Grid_p4.get(b) == 1) {
-					   if(b%G_row+2 < G_row & Grid_p4.get(b+2) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b%G_row+2 < G_row) {
+						   if(Grid_p4.get(b+2) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b%G_row-2 >= 0 & Grid_p4.get(b-2) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b%G_row-2 >= 0) {
+						   if(Grid_p4.get(b-2) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b+G_row+G_row < n & Grid_p4.get(b+G_row+G_row) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b+G_row+G_row < n) {
+						   if(Grid_p4.get(b+G_row+G_row) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b-G_row-G_row >= 0 & Grid_p4.get(b-G_row-G_row) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b-G_row-G_row >= 0) {
+						   if(Grid_p4.get(b-G_row-G_row) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b-G_row >= 0 & b%G_row+1 < G_row & Grid_p4.get(b-G_row+1) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b-G_row >= 0 & b%G_row+1 < G_row) {
+						   if(Grid_p4.get(b-G_row+1) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b+G_row < n & b%G_row+1 < G_row & Grid_p4.get(b+G_row+1) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b+G_row < n & b%G_row+1 < G_row) {
+						   if(Grid_p4.get(b+G_row+1) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b-G_row >= 0 & b%G_row-1 >= 0 & Grid_p4.get(b-G_row-1) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b-G_row >= 0 & b%G_row-1 >= 0) {
+						   if(Grid_p4.get(b-G_row-1) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
-					   if(b+G_row < n & b%G_row-1 >= 0 & Grid_p4.get(b+G_row-1) == 4) {
-						   Grid_p4.set(b,3);
-						   energy += 1;
+					   if(b+G_row < n & b%G_row-1 >= 0) {
+						   if(Grid_p4.get(b+G_row-1) == 4) {
+							   Grid_p4.set(b,3);
+							   energy += 1;
+						   }
 					   }
 				   }
 			   }
