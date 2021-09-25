@@ -405,7 +405,7 @@ public class ParasiteResource {
 		   int energy = 0;
 		   ArrayList<Integer> Grid_p4 = new ArrayList<Integer>(Grid_p1);
 		   int n = Grid_p4.size();
-		   for(int b = 1; b < n; b++) {
+		   for(int b = 0; b < n; b++) {
 			   if(Grid_p4.get(b) <= -3) {
 				   Grid_p4.set(b, 4);
 			   }
