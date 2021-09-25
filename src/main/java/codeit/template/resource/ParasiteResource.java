@@ -83,7 +83,9 @@ public class ParasiteResource {
 		   Grid = Grid.replace(",","");
 		   Grid = Grid.replace(" ","");
 		   int G_row = Grid.length()/G_col;
-
+		   System.out.println("Row: " + G_row);
+		   System.out.println("Col: " + G_col);
+		   
 		   int time = 0;
 		   int basic = 3;
 		   char[] temp = Grid.toCharArray();
