@@ -21,9 +21,10 @@ public class DecoderResource {
 	   
        JSONObject obj = new JSONObject(body);
        LinkedHashMap<String, Object> ans = new LinkedHashMap();
-       String[] Data = obj.get("history").toString().split("},{");
+       String[] Data = obj.get("history").toString().split("\\},\\{");
        for(String i: Data) {
-    	   
+    	   System.out.println(i);
+    	   System.out.println(i.substring(i.indexOf("result")+ 8, i.indexOf(",")));
        }
 
        System.out.println(Data);
