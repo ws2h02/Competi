@@ -17,13 +17,19 @@ public class DecoderResource {
     Logger logger = LoggerFactory.getLogger(DecoderResource.class);
 
    @RequestMapping(value = "decoder",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String[] calculate(@RequestBody String body){
+    public LinkedHashMap<String, Object> calculate(@RequestBody String body){
 	   
        JSONObject obj = new JSONObject(body);
-       System.out.println(obj.get("history"));
        LinkedHashMap<String, Object> ans = new LinkedHashMap();
+       String Data = obj.get("history").toString();
+       
+
+       System.out.println(Data);
+
+       
+       
        String[] anslist = {"a", "b", "d", "c"};
        ans.put("answer", anslist);
-	return anslist;
+	return ans;
     }
 }
