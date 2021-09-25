@@ -53,6 +53,9 @@ public class AsteroidResource {
 			  int multi = Integer.valueOf(Analy.get(pre).charAt(1)) - 48 + Integer.valueOf(Analy.get(aft).charAt(1)) - 48;
 			  pre -= 1;
 			  aft += 1;
+			  if(aft == Analy.size()) {
+				  aft -= 1;
+			  }
 			  if(multi <= 6) {
 				  score += multi;
 			  }else if(multi <= 9) {
