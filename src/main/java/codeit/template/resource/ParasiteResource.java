@@ -636,8 +636,11 @@ public class ParasiteResource {
 		   }
 		   
 		   LinkedHashMap<String, Object> p1_map = new LinkedHashMap<String, Object>();
+		   System.out.println(InI);
 		   for(int num = 0; num < InI.length(); num+=2) {
 			   String p1 = "";
+			   System.out.println("A: " + InI.charAt(num));
+			   System.out.println("B: " + InI.charAt(num+1));
 			   int Inpo = Character.getNumericValue(InI.charAt(num))*G_row+Character.getNumericValue(InI.charAt(num+1));
 			   p1 += InI.charAt(num) + "," + InI.charAt(num+1);
 			   if(Grid_p1.get(Inpo) == 1 |Grid_p1.get(Inpo) == 2 |Grid_p1.get(Inpo) == 0| Grid_p1.get(Inpo) == -3) {
