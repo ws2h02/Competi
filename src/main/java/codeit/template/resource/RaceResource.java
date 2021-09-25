@@ -17,7 +17,7 @@ public class RaceResource {
    @RequestMapping(value = "fixedrace",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String calculate(@RequestBody String body){
        System.out.println(body);
-       String ans = "Joseph Jarosz,Caitlin Cully,Nelson Noss,Cortez Carranco,Shona Stanek,Rudolf Ravelo,Alysia Alejandro,Justin Jack,Britt Bisceglia,Amos Alward";
+       String ans = body;
        return ans;
     }
 }
