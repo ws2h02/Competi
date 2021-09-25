@@ -267,47 +267,61 @@ public class ParasiteResource {
 					   if(b%G_row+2 < G_row) {
 						   if(Grid_p4.get(b+2) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b%G_row-2 >= 0) {
 						   if(Grid_p4.get(b-2) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b+G_row+G_row < n) {
 						   if(Grid_p4.get(b+G_row+G_row) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b-G_row-G_row >= 0) {
 						   if(Grid_p4.get(b-G_row-G_row) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b-G_row >= 0 & b%G_row+1 < G_row) {
 						   if(Grid_p4.get(b-G_row+1) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b+G_row < n & b%G_row+1 < G_row) {
 						   if(Grid_p4.get(b+G_row+1) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b-G_row >= 0 & b%G_row-1 >= 0) {
 						   if(Grid_p4.get(b-G_row-1) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
 					   if(b+G_row < n & b%G_row-1 >= 0) {
 						   if(Grid_p4.get(b+G_row-1) == 4) {
 							   Grid_p4.set(b,3);
+							   energy += 1;
+							   break;
 						   }
 					   }
-					   if(Grid_p4.get(b) != 1) {
-						   energy += 1;
-					   }
 				   }
+				   System.out.println("Here: " + b + " " + energy);
 			   }
 		   }
 		   
