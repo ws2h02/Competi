@@ -22,25 +22,30 @@ public class DecoderResource {
 	   String temp;
        JSONObject obj = new JSONObject(body);
 	   String[] anslist = new String[obj.getInt("num_slots")];
+	   for(int j = 0; j < anslist.length; j++) {
+		   anslist[j] = obj.getJSONArray("possible_values").get(j).toString();
+	   }
        LinkedHashMap<String, Object> ans = new LinkedHashMap();
-       String[] Data = obj.get("history").toString().split("\\},\\{");
-       for(String i: Data) {
-    	   System.out.println(i);
-    	   int result = Integer.parseInt(i.substring(i.indexOf("result")+ 8, i.indexOf(",")));
-    	   System.out.println(result);
-    	   if(result == 4) {
-    		   temp = i.substring(i.indexOf("output_received")+ 18, i.indexOf("]"));
-    		   temp = temp.replace("\"", "");
-    		   temp = temp.replace(",", "");
-    		   System.out.println(temp);
-    		   for(int j = 0; j < anslist.length; j++) {
-    			   anslist[j] = Character.toString(temp.toCharArray()[j]);
-    		   }
-    	   }else {
-    		   for(int j = 0; j < anslist.length; j++) {
-    			   anslist[j] = "a";
-    		   }
-    	   }
+       if(!obj.getJSONArray("history").isEmpty()) {
+    	   String[] Data = obj.get("history").toString().split("\\},\\{");
+           for(String i: Data) {
+        	   System.out.println(i);
+        	   int result = Integer.parseInt(i.substring(i.indexOf("result")+ 8, i.indexOf(",")));
+        	   System.out.println(result);
+        	   if(result == 4) {
+        		   temp = i.substring(i.indexOf("output_received")+ 18, i.indexOf("]"));
+        		   temp = temp.replace("\"", "");
+        		   temp = temp.replace(",", "");
+        		   System.out.println(temp);
+        		   for(int j = 0; j < anslist.length; j++) {
+        			   anslist[j] = Character.toString(temp.toCharArray()[j]);
+        		   }
+        	   }else {
+        		   for(int j = 0; j < anslist.length; j++) {
+        			   anslist[j] = "a";
+        		   }
+        	   }
+           }
        }
        
 
