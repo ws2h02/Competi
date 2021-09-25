@@ -16,16 +16,13 @@ public class AsteroidResource {
     Logger logger = LoggerFactory.getLogger(AsteroidResource.class);
 
    @RequestMapping(value = "asteroid",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String calculate(@RequestBody String body){
-	   String input = body.toString();
+    public String calculate(@RequestBody Map<String, String[]> body){
+	   String[] input = body.get("test_cases");
 	   ArrayList<String> Data = new ArrayList<String>();
-	   for (String temp: input.split("\\[|\\]|,|\"|\\\n")) {
-		   if(temp.hashCode() != 0 && temp.hashCode() != 13 && temp.hashCode() != 1024) {
-	    		Data.add(temp);
-		    	System.out.println(temp);
-		   }
+	   for (String temp : input) {
+	    	Data.add(temp);
+		    System.out.println(temp);
 	   }
-	   
 	   
 	   ArrayList<String> List = new ArrayList<String>();
        
