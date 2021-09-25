@@ -46,10 +46,8 @@ public class DecoderResource {
         	   }
            }
        }
-       
-       String[] anslist1 = { "y","x","a","i","l"};
 
-       ans.put("answer", anslist1);
+       ans.put("answer", anslist);
 	return ans;
     }
 }
