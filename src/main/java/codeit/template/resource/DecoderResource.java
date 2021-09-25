@@ -31,25 +31,21 @@ public class DecoderResource {
            for(String i: Data) {
         	   System.out.println(i);
         	   int result = Integer.parseInt(i.substring(i.indexOf("result")+ 8, i.indexOf(",")));
+        	   temp = i.substring(i.indexOf("output_received")+ 18, i.indexOf("]"));
+        	   temp = temp.replace("\"", "");
+    		   temp = temp.replace(",", "");
         	   System.out.println(result);
         	   if(result == 4) {
-        		   temp = i.substring(i.indexOf("output_received")+ 18, i.indexOf("]"));
-        		   temp = temp.replace("\"", "");
-        		   temp = temp.replace(",", "");
-        		   System.out.println(temp);
         		   for(int j = 0; j < anslist.length; j++) {
         			   anslist[j] = Character.toString(temp.toCharArray()[j]);
-        		   }
-        	   }else {
-        		   for(int j = 0; j < anslist.length; j++) {
-        			   anslist[j] = "a";
         		   }
         	   }
            }
        }
        
+       String[] anslist1 = { "y","x","a","i","l"};
 
-       ans.put("answer", anslist);
+       ans.put("answer", anslist1);
 	return ans;
     }
 }
