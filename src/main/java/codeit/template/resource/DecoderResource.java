@@ -21,14 +21,13 @@ public class DecoderResource {
 	   
        JSONObject obj = new JSONObject(body);
        LinkedHashMap<String, Object> ans = new LinkedHashMap();
-       String Data = obj.get("history").toString();
-       
+       String[] Data = obj.get("history").toString().split("},{");
+       for(String i: Data) {
+    	   
+       }
 
        System.out.println(Data);
-
-       
-       
-       String[] anslist = {"a", "b", "d", "c"};
+       String[] anslist = {"a", "b", "d", "c", "c"};
        ans.put("answer", anslist);
 	return ans;
     }
