@@ -83,8 +83,7 @@ public class ParasiteResource {
 		   Grid = Grid.replace(",","");
 		   Grid = Grid.replace(" ","");
 		   int G_row = Grid.length()/G_col;
-		   System.out.println("Row: " + G_row);
-		   System.out.println("Col: " + G_col);
+
 		   
 		   int time = 0;
 		   int basic = 3;
@@ -173,7 +172,6 @@ public class ParasiteResource {
 						   Grid_p3.set(posi+G_row-1,time + basic+1);
 					   }
 				   }
-				 System.out.println(Grid_p3);
 			   }
 			   time += 1;
 		   }
@@ -367,12 +365,8 @@ public class ParasiteResource {
 		   
 		   ans[cont] = new LinkedHashMap<String, Object>(object);
 		   cont += 1;
-		   System.out.println(Grid_p1);
-		   System.out.println(Grid_p3);
-		   System.out.println(Grid_p4);
-		   System.out.println();
 	   }
-
+	System.out.print("Done");
 	return ans;
 
 }}
