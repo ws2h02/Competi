@@ -31,7 +31,7 @@ public class RaceResource {
        Data.put("Emily Eckles","Lamont Lasch, Adina Able, Robbyn Ryland, Dorathy Detweiler, Lyman Laseter, Bernie Bondy, Ozell Ostrem, Fabian Fogel, Derek Duclos,Judith Juntunen, Terry Tietz, Valerie Vera, Alex Appleton, Duane Darrell, Brady Borda, Bernie Bondy, Darren Dudley, Dominque Deshon,Yuette Yurick, Justa Jeffery, Derek Duclos, Alayna Alberson, Livia Luse, Yu Yeates, Robbyn Ryland, Amos Alward, Shirly Sosebee, Gary Ginsburg, Derek Duclos, Alayna Alberson, Dominque Deshon, Livia Luse, Stepanie Strang, Arron Ammerman, Carlo Chute, Gaston Glotfelty, Gaston Glotfelty, Eva Epping, Vida Veal, Derek Duclos, Bernadine Brackin, Armida Abarca, Valerie Vera, Annalee Angert, Arron Ammerman");
        Data.put("Gaston Glotfelty", "Fletcher Felty, Yuette Yurick, Willian Wahlen, Trinity Trueblood, Thanh Tammaro, Vida Veal, Livia Luse, Franklin Filippi, Danae Depuy");
        Data.put("Shelli Scheuerman", "Judith Juntunen, Boris Batts, Livia Luse, Duane Darrell, Jefferson Juhl, Pamula Parrinello, Lauretta Lippard, Lamont Lasch, Gary Ginsburg");
-       Data.put("Stepanie Strang", "Alaina Adolphson, Douglas Delima, Gary Ginsburg, Boris Batts, Karin Kurth, Farrah Frasure, Carlo Chute, Pamula Parrinello, Danae Depuy")
+       Data.put("Stepanie Strang", "Alaina Adolphson, Douglas Delima, Gary Ginsburg, Boris Batts, Karin Kurth, Farrah Frasure, Carlo Chute, Pamula Parrinello, Danae Depuy");
        
        
        String[] Choose = body.split(",");
