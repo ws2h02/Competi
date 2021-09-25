@@ -18,7 +18,9 @@ public class DecoderResource {
 
    @RequestMapping(value = "decoder",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public LinkedHashMap<String, Object> calculate(@RequestBody String body){
+	   System.out.println(body);
 	   String[] anslist = {"a", "b", "d", "c", "c"};
+	   String temp;
        JSONObject obj = new JSONObject(body);
        LinkedHashMap<String, Object> ans = new LinkedHashMap();
        String[] Data = obj.get("history").toString().split("\\},\\{");
@@ -27,7 +29,8 @@ public class DecoderResource {
     	   int result = Integer.parseInt(i.substring(i.indexOf("result")+ 8, i.indexOf(",")));
     	   System.out.println(result);
     	   if(result == 4) {
-    		   
+    		   temp = i.substring(i.indexOf("output_received")+ 12, i.indexOf(","));
+    		   System.out.println(temp);
     	   }
        }
 
