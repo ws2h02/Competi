@@ -308,7 +308,6 @@ public class ParasiteResource {
 						   energy += 1;
 					   }
 				   }
-				   System.out.println("Here: " + b + " " + energy);
 			   }
 		   }
 		   
