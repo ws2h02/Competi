@@ -46,16 +46,17 @@ public class AsteroidResource {
 		  
 
 		  int start = (int) Math.floor(Analy.size()/2);
-		  double score = Integer.valueOf(Analy.get(start).charAt(1)) - 48;
+		  double score = Integer.valueOf(Analy.get(start).substring(1));
 		  int pre = start-1;
 		  int aft = start+1;
 		  while(pre >= 0) {
-			  int multi = Integer.valueOf(Analy.get(pre).charAt(1)) - 48 + Integer.valueOf(Analy.get(aft).charAt(1)) - 48;
-			  pre -= 1;
-			  aft += 1;
 			  if(aft == Analy.size()) {
-				  aft -= 1;
+				  break;
 			  }
+			  if(Analy.get(pre).charAt(0) != Analy.get(aft).charAt(0)) {
+				  break;
+			  }
+			  int multi = Integer.valueOf(Analy.get(pre).substring(1)) + Integer.valueOf(Analy.get(aft).substring(1));
 			  if(multi <= 6) {
 				  score += multi;
 			  }else if(multi <= 9) {
@@ -63,6 +64,11 @@ public class AsteroidResource {
 			  }else if(multi >= 10) {
 				  score += multi*2;
 			  }
+
+			  System.out.println(multi);
+			  pre -= 1;
+			  aft += 1;
+
 		  }
 		  
 		  BigDecimal d = new BigDecimal(score);
@@ -70,12 +76,14 @@ public class AsteroidResource {
 		  System.out.println(d);
 		  ans += "\"score\": " + d +",\r\n";
 		  
-		  int origin = (int) Math.floor((Integer.valueOf(Analy.get(start).charAt(1)) - 48)/2);
+		  int origin = (int) Math.floor((Integer.valueOf(Analy.get(start).substring(1)))/2);
+		  System.out.println(Analy);
 		  for(int i = 0; i < start; i++) {
-			  origin += Integer.valueOf(Analy.get(i).charAt(1)) - 48;
+			  origin += Integer.valueOf(Analy.get(i).substring(1));
+			  System.out.println("Here"+ Analy.get(i).substring(1));
 		  }
 		  
-		  System.out.println("Here"+ origin);
+		  System.out.println("ori"+ origin);
 		  ans += "    \"origin\": " + origin +"\r\n" + "  },\r\n";
 	  }
 	  ans = ans.substring(0, ans.length()-3);
