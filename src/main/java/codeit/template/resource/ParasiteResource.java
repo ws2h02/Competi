@@ -243,23 +243,23 @@ public class ParasiteResource {
 				   Grid_p4.set(posi, 4);
 				   if(posi%G_row+1 < G_row) {
 					   if(Grid_p4.get(posi+1) == 1) {
-						   Grid_p1.set(posi+1,4);
+						   Grid_p1.set(posi+1,3);
 					   }
 				   }
 				   if(posi%G_row-1 >= 0) {
 					   if(Grid_p4.get(posi-1) == 1) {
-						   Grid_p4.set(posi-1,4);
+						   Grid_p4.set(posi-1,3);
 					   }
 				   }
 				   if(posi+G_row < n) {
 					   if(Grid_p4.get(posi+G_row) == 1) {
-						   Grid_p4.set(posi+G_row,4);
+						   Grid_p4.set(posi+G_row,3);
 						  
 					   }
 				   }
 				   if(posi-G_row >= 0) {
 					   if(Grid_p4.get(posi-G_row) == 1) {
-						   Grid_p4.set(posi-G_row,4);
+						   Grid_p4.set(posi-G_row,3);
 					   }
 				   }
 			   }
