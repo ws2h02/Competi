@@ -17,32 +17,22 @@ public class AsteroidResource {
 
    @RequestMapping(value = "asteroid",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String calculate(@RequestBody Map<String, String[]> body){
-	   String[] input = body.get("test_cases");
-	   ArrayList<String> Data = new ArrayList<String>();
-	   for (String temp : input) {
+	  String[] input = body.get("test_cases");
+	  ArrayList<String> Data = new ArrayList<String>();
+	  for (String temp : input) {
 	    	Data.add(temp);
 		    System.out.println(temp);
-	   }
+	  }
 	   
-	   ArrayList<String> List = new ArrayList<String>();
+	  ArrayList<String> List = new ArrayList<String>();
        
-	   String abc = "[\r\n"
-	   		+ "  {\r\n"
-	   		+ "    \"input\": \"CCCAAABBBAAACCC\",\r\n"
-	   		+ "    \"score\": 15,\r\n"
-	   		+ "    \"origin\": 7\r\n"
-	   		+ "  },\r\n"
-	   		+ "  {\r\n"
-	   		+ "    \"input\": \"BBAAABBB\",\r\n"
-	   		+ "    \"score\": 8,\r\n"
-	   		+ "    \"origin\": 3\r\n"
-	   		+ "  },\r\n"
-	   		+ "  {\r\n"
-	   		+ "    \"input\": \"CCCAAAAABBBAAACCC\",\r\n"
-	   		+ "    \"score\": 21,\r\n"
-	   		+ "    \"origin\": 9\r\n"
-	   		+ "  }\r\n"
-	   		+ "]";
+	  String abc = "[\r\n";
+	   		
+	  for (String temp : List) {
+		  abc += "  {\r\n" + "    \"input\": \"" + temp + "\\\",\\r\\n\"";
+		  abc += "    \"score\": 15,\r\n" + "    \"origin\": 7\r\n" + "  },\r\n";
+	  }
+	  abc += "]";
        return abc;
     }
 }
