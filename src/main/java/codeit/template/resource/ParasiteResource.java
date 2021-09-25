@@ -684,7 +684,7 @@ public class ParasiteResource {
 			   p3 = -1*p3-3;
 		   }
 		   
-		   object.put("room", room);
+		   object.put("room", Integer.parseInt(room));
 		   object.put("p1",p1_map);
 		   object.put("p2",p2);
 		   object.put("p3",p3);
