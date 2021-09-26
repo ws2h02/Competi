@@ -18,6 +18,7 @@ public class SHResource {
     
    @RequestMapping(value = "stock-hunter",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public LinkedHashMap<String, Object>[] calculate(@RequestBody String body){
+	   System.out.println(body);
 	   JSONArray obj = new JSONArray(body);
 	   LinkedHashMap<String, Object>[] ans = new LinkedHashMap[obj.length()];
 	   int cout = 0;
