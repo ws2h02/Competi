@@ -55,7 +55,7 @@ public class DecoderResource {
        }
        
        String[] anslist1 = { "y","x","a","i","l"};
-
+       System.out.println(ans);
        ans.put("answer", anslist);
 	return ans;
     }
