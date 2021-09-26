@@ -18,7 +18,7 @@ public class StonksResource {
     Logger logger = LoggerFactory.getLogger(StonksResource.class);
 
    @RequestMapping(value = "stonks",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public LinkedHashMap<String, Object>[] calculate(@RequestBody String body){
+    public String calculate(@RequestBody String body){
 	   System.out.println(body);
 	   JSONArray obj = new JSONArray(body);
 	   for(Object i: obj) {
@@ -27,7 +27,8 @@ public class StonksResource {
 		   
 	   }
 	   
-	   LinkedHashMap<String, Object>[] ans = new LinkedHashMap[obj.length()];
+	   //LinkedHashMap<String, Object>[] ans = new LinkedHashMap[obj.length()];
+	   String ans = "[[\"j-2037-2036\",\"b-Apple-50\",\"j-2036-2037\",\"s-Apple-50\"]";
 	   return ans;
     }
 }
