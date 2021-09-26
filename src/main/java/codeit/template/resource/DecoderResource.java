@@ -36,14 +36,7 @@ public class DecoderResource {
         	   temp = temp.replace("\"", "");
     		   temp = temp.replace(",", "");
     		   for(int j = 0; j < anslist.length; j++) {
-    			   if(j == 0) {
-    				   anslist[j] = "u";
-    			   }else if(j == 2){
-    				   anslist[j] = "a";
-    			   }else {
-    				   anslist[j] = obj.getJSONArray("possible_values").get(rand.nextInt(anslist.length)).toString();
-    			   }
-    			   
+    				  anslist[j] = obj.getJSONArray("possible_values").get(rand.nextInt(anslist.length)).toString();
     		   }
         	   System.out.println(result);
         	   if(result == 4) {
