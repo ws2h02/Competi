@@ -70,7 +70,7 @@ public class SHResource {
 		   min -= riskCost[start_Y][start_X];
 		   LinkedHashMap<String, Object> answer = new LinkedHashMap();
 		   answer.put("gridMap", Grid);
-		   answer.put("minimumCos", min);
+		   answer.put("minimumCost", min);
 		   ans[cout] = answer;
 		   cout += 1;
 	   }
